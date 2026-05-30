@@ -1,12 +1,10 @@
-{% extends "base.html" %}
-{% block title %}
-  Лента записей
-{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Лента публикаций{% endblock %}
 {% block content %}
+  <h1>Лента публикаций</h1>
   {% for post in page_obj %}
-    <article class="mb-5">
-      {% include "includes/post_card.html" %}
-    </article>
+    <hr>
+    {% include 'blog/includes/post_card.html' %}
   {% endfor %}
   {% include "includes/paginator.html" %}
 {% endblock %}

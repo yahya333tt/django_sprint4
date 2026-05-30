@@ -1,7 +1,3 @@
-{% if post.category %}
-  <a class="text-muted" href="{% url 'blog:category_posts' post.category.slug %}">
-    {{ post.category.title }}
-  </a>
-{% else %}
-  <a style="color: red">удалено!</a>
-{% endif %}
+<a class="text-muted" href="{% url 'blog:category_posts' post.category.slug %}">
+  «{{ post.category.title|default_if_none:'Категория не выбрана' }}»
+</a>

@@ -1,15 +1,15 @@
 from django.db import models
 
-
-# Модель можно вынести в приложение Core либо оставить в приложении Blog.
-class PublishedAndCreatedAt(models.Model):
+class BaseModel(models.Model):
     is_published = models.BooleanField(
-        'Опубликовано',
         default=True,
+        verbose_name='Опубликовано',
         help_text='Снимите галочку, чтобы скрыть публикацию.'
     )
-    created_at = models.DateTimeField('Добавлено', auto_now_add=True,)
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Добавлено',
+    )
 
     class Meta:
         abstract = True
-        ordering = ('created_at', )
